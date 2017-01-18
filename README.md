@@ -21,5 +21,9 @@ Keys supported in resizing mode:
 
 There're all builtin keys combined with `<c-w>` for window resizing on vim.
 
+NOTICE:  I'm a neovim user. This plugin uses neovim's `timer_start` function, I
+havn't test it on vim, and I'm not sure it would work. PR will be accpeted for
+being compatible with vim.
+
 Happy editting!
 
