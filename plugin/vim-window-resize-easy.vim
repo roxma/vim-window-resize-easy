@@ -28,7 +28,7 @@ func! s:resize_mode()
 	let s:char_getted = 0
 	let l:timer = timer_start(2000, function('s:getchar_timeout'), {'repeat': 1})
 
-	echo 'window resizing... [<] '
+	echo 'window resizing... horizontal smaller [<], horizontal greater [>], vertical decrease [-], vertical increase [+], others [_] [=] '
 
 	let l:ch = getchar()
 	call timer_stop(l:timer)
