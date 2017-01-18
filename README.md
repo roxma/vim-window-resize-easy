@@ -10,7 +10,7 @@ With vim-window-resize-easy, after pressing `<c-w><`, you only need to repeat
 the action with `<` `<` `<`. If you don't press any key in 2 seconds, it
 returns to normal mode automatically.
 
-Keys supported in resizing mode:
+## Keys supported in resizing mode:
 
 - `<` horizontal smaller
 - `>` horizontal greater
@@ -21,7 +21,7 @@ Keys supported in resizing mode:
 
 There're all builtin keys combined with `<c-w>` for window resizing on vim.
 
-## requirement
+## Requirement
 
 - vim 7.4.1952+ or neovim (with timers support)
 
