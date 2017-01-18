@@ -52,6 +52,8 @@ func! s:resize_mode()
 	elseif l:ch == char2nr('=')
 		call feedkeys("\<c-w>=")
 	else
+		" clear the prompt
+		echo ''
 		" not sure this is a good behavior
 		call feedkeys(nr2char(l:ch))
 	endif
