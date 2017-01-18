@@ -21,11 +21,13 @@ func! s:getchar_timeout(timer)
 		return
 	endif
 	call feedkeys(" ",'n')
+	let s:char_feeded = 1
 endfunc
 
 func! s:resize_mode()
 
 	let s:char_getted = 0
+	let s:char_feeded = 0
 	let l:timer = timer_start(2000, function('s:getchar_timeout'), {'repeat': 1})
 
 	echo 'window resizing... horizontal smaller [<], horizontal greater [>], vertical decrease [-], vertical increase [+], others [_] [=] '
@@ -36,6 +38,7 @@ func! s:resize_mode()
 
 	" hack for key holding
 	while getchar(0) != 0
+		" nop statement
 		let s:char_getted = 1
 	endwhile
 
@@ -55,7 +58,9 @@ func! s:resize_mode()
 		" clear the prompt
 		echo ''
 		" not sure this is a good behavior
-		call feedkeys(nr2char(l:ch))
+		if s:char_feeded == 0
+			call feedkeys(nr2char(l:ch))
+		endif
 	endif
 
 	return ''
