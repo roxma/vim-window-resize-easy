@@ -3,6 +3,8 @@ if has('timers')!=1
 	finish
 endif
 
+let g:window_resize_timeout =  get(g:, 'window_resize_timeout', 2000)
+
 nnoremap <expr> <Plug>(vim-window-resize-easy) <SID>resize_mode()
 
 nnoremap <Plug>(vim-window-resize-lt)			<c-w><
@@ -37,7 +39,7 @@ func! s:resize_mode()
 
 		let s:char_getted = 0
 		let s:char_feeded = 0
-		let l:timer = timer_start(2000, function('s:getchar_timeout'), {'repeat': 1})
+		let l:timer = timer_start(g:window_resize_timeout, function('s:getchar_timeout'), {'repeat': 1})
 
 		echo 'window resizing... horizontal smaller [<], horizontal greater [>], vertical decrease [-], vertical increase [+], others [_] [=] '
 
