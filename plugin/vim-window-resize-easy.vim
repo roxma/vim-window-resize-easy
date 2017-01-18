@@ -30,40 +30,51 @@ endfunc
 
 func! s:resize_mode()
 
-	let s:char_getted = 0
-	let s:char_feeded = 0
-	let l:timer = timer_start(2000, function('s:getchar_timeout'), {'repeat': 1})
+	let l:ch = char2nr('0')
+	let l:prefix = ''
 
-	echo 'window resizing... horizontal smaller [<], horizontal greater [>], vertical decrease [-], vertical increase [+], others [_] [=] '
+	while nr2char(l:ch) =~ '[0-9]'
 
-	let l:ch = getchar()
-	call timer_stop(l:timer)
-	let s:char_getted = 1
+		let s:char_getted = 0
+		let s:char_feeded = 0
+		let l:timer = timer_start(2000, function('s:getchar_timeout'), {'repeat': 1})
 
-	" hack for key holding
-	while getchar(0) != 0
-		" nop statement
+		echo 'window resizing... horizontal smaller [<], horizontal greater [>], vertical decrease [-], vertical increase [+], others [_] [=] '
+
+		let l:ch = getchar()
+		call timer_stop(l:timer)
 		let s:char_getted = 1
+
+		" hack for key holding
+		while getchar(0) != 0
+			" nop statement
+			let s:char_getted = 1
+		endwhile
+
+		if nr2char(l:ch) =~ '[0-9]'
+			let l:prefix .= nr2char(l:ch)
+		endif
+	
 	endwhile
 
 	if l:ch == char2nr('<')
-		call feedkeys("\<c-w><")
+		call feedkeys(l:prefix . "\<c-w><")
 	elseif l:ch == char2nr('>')
-		call feedkeys("\<c-w>>")
+		call feedkeys(l:prefix . "\<c-w>>")
 	elseif l:ch == char2nr('+')
-		call feedkeys("\<c-w>+")
+		call feedkeys(l:prefix . "\<c-w>+")
 	elseif l:ch == char2nr('-')
-		call feedkeys("\<c-w>-")
+		call feedkeys(l:prefix . "\<c-w>-")
 	elseif l:ch == char2nr('_')
-		call feedkeys("\<c-w>_")
+		call feedkeys(l:prefix . "\<c-w>_")
 	elseif l:ch == char2nr('=')
-		call feedkeys("\<c-w>=")
+		call feedkeys(l:prefix . "\<c-w>=")
 	else
 		" clear the prompt
 		echo ''
 		" not sure this is a good behavior
 		if s:char_feeded == 0
-			call feedkeys(nr2char(l:ch))
+			call feedkeys(l:prefix . nr2char(l:ch))
 		endif
 	endif
 
