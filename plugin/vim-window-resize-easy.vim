@@ -1,4 +1,8 @@
 
+if has('timers')!=1
+	finish
+endif
+
 nnoremap <expr> <Plug>(vim-window-resize-easy) <SID>resize_mode()
 
 nnoremap <Plug>(vim-window-resize-lt)			<c-w><
