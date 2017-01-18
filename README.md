@@ -12,14 +12,15 @@ returns to normal mode automatically.
 
 ## Keys supported in resizing mode:
 
+There're all builtin keys combined with `<c-w>` for window resizing on vim. 
+Type `:help resize` for more information.
+
 - `<` horizontal smaller
 - `>` horizontal greater
 - `-` vertical decrease
 - `+` vertical increase
 - `=` equalize
 - `_` maximize
-
-There're all builtin keys combined with `<c-w>` for window resizing on vim.
 
 ## Requirement
 
