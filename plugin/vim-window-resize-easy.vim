@@ -7,16 +7,16 @@ let g:window_resize_timeout =  get(g:, 'window_resize_timeout', 2000)
 
 nnoremap <expr> <Plug>(vim-window-resize-easy) <SID>resize_mode()
 
-nnoremap <Plug>(vim-window-resize-lt)			<c-w><
-nnoremap <Plug>(vim-window-resize-gt)			<c-w>>
+nnoremap <Plug>(vim-window-resize-lt)			<c-w><lt>
+nnoremap <Plug>(vim-window-resize-gt)			<c-w><Char-62>
 nnoremap <Plug>(vim-window-resize-p)			<c-w>+
 nnoremap <Plug>(vim-window-resize-m)			<c-w>-
 nnoremap <Plug>(vim-window-resize-underscore)	<c-w>_
 nnoremap <Plug>(vim-window-resize-equal)		<c-w>=
 nnoremap <Plug>(vim-window-resize-bar)		    <c-w><bar>
 
-nmap  <c-w><  <Plug>(vim-window-resize-lt)<Plug>(vim-window-resize-easy)
-nmap  <c-w>>  <Plug>(vim-window-resize-gt)<Plug>(vim-window-resize-easy)
+nmap  <c-w><lt>       <Plug>(vim-window-resize-lt)<Plug>(vim-window-resize-easy)
+nmap  <c-w><Char-62>  <Plug>(vim-window-resize-gt)<Plug>(vim-window-resize-easy)
 nmap  <c-w>+  <Plug>(vim-window-resize-p)<Plug>(vim-window-resize-easy)
 nmap  <c-w>-  <Plug>(vim-window-resize-m)<Plug>(vim-window-resize-easy)
 nmap  <c-w>_  <Plug>(vim-window-resize-underscore)<Plug>(vim-window-resize-easy)
