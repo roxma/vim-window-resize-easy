@@ -13,6 +13,7 @@ nnoremap <Plug>(vim-window-resize-p)			<c-w>+
 nnoremap <Plug>(vim-window-resize-m)			<c-w>-
 nnoremap <Plug>(vim-window-resize-underscore)	<c-w>_
 nnoremap <Plug>(vim-window-resize-equal)		<c-w>=
+nnoremap <Plug>(vim-window-resize-bar)		    <c-w><bar>
 
 nmap  <c-w><  <Plug>(vim-window-resize-lt)<Plug>(vim-window-resize-easy)
 nmap  <c-w>>  <Plug>(vim-window-resize-gt)<Plug>(vim-window-resize-easy)
@@ -20,6 +21,7 @@ nmap  <c-w>+  <Plug>(vim-window-resize-p)<Plug>(vim-window-resize-easy)
 nmap  <c-w>-  <Plug>(vim-window-resize-m)<Plug>(vim-window-resize-easy)
 nmap  <c-w>_  <Plug>(vim-window-resize-underscore)<Plug>(vim-window-resize-easy)
 nmap  <c-w>=  <Plug>(vim-window-resize-equal)<Plug>(vim-window-resize-easy)
+nmap  <c-w><bar>  <Plug>(vim-window-resize-bar)<Plug>(vim-window-resize-easy)
 
 func! s:getchar_timeout(timer)
 	if s:char_getted
@@ -71,6 +73,8 @@ func! s:resize_mode()
 		call feedkeys(l:prefix . "\<c-w>_")
 	elseif l:ch == char2nr('=')
 		call feedkeys(l:prefix . "\<c-w>=")
+	elseif l:ch == char2nr('|')
+		call feedkeys(l:prefix . "\<c-w>|")
 	else
 		" clear the prompt
 		echo ''

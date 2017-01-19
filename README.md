@@ -21,6 +21,7 @@ Type `:help resize` for more information.
 - `+` vertical increase
 - `=` equalize
 - `_` maximize
+- `|` vertical maximize
 
 ## Requirement
 
