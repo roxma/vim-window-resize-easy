@@ -41,7 +41,7 @@ func! s:resize_mode()
 		let s:char_feeded = 0
 		let l:timer = timer_start(g:window_resize_timeout, function('s:getchar_timeout'), {'repeat': 1})
 
-		echo 'window resizing... [ > < + - _ = ]'
+		echom 'window resizing... [ > < + - _ = ]..'
 
 		let l:ch = getchar()
 		call timer_stop(l:timer)
